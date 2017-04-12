@@ -1,0 +1,19 @@
+message handshake {
+  required int64 ver = 1;
+  optional string cfid = 2;
+}
+
+message ecpacket {
+  message cdaacfile {
+    required string type = 1;
+    required string name = 2;
+    required int64  size = 3;
+    required string hash = 4;
+    optional bytes  data = 5; 
+  }
+  required int64    count = 1;
+  required string  origin = 2;
+  optional string mission = 3;
+  optional string tolevel = 4;
+  repeated cdaacfile fpkg = 5;
+}

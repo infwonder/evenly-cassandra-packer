@@ -1,0 +1,14 @@
+{
+  "name": "evenly-cassandra-packer",
+  "version": "0.0.1",
+  "description": "protobuf formater and parser, along with some folder watcher utilities for evenly-cassandra",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "evenly"
+  ],
+  "author": "Jason Lin",
+  "license": "Apache-2.0"
+}
