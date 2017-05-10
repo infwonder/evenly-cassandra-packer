@@ -15,11 +15,11 @@ limitations under the License.
 */
 
 'use strict';
-const protobuf = require("protocol-buffers");
+//const protobuf = require("protocol-buffers");
+//const lupus = require('lupus');
 const C = require('crypto');
 const fs = require('fs');
 const os = require('os');
-const lupus = require('lupus');
 
 module.exports = 
 {
