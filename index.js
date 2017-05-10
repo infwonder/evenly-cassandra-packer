@@ -18,6 +18,7 @@ limitations under the License.
 const protobuf = require("protocol-buffers");
 const C = require('crypto');
 const fs = require('fs');
+const os = require('os');
 const lupus = require('lupus');
 
 module.exports = 
@@ -30,6 +31,7 @@ module.exports =
   cfgobj: undefined,
   watchman: undefined,
   pbsq: [],
+  deleteSrc: true,
   triggerName: '__WATCH_TRIGGER__',
   triggerTime: 1001,
   triggerInst: undefined,
@@ -75,7 +77,7 @@ module.exports =
     {                                                  
       var error = null;
 
-      if (e == 'change' && f != module.exports.triggerName && fs.existsSync(path + '/' + f) && filelist.indexOf(path + '/' + f) == -1) {
+      if (e == 'rename' && f != module.exports.triggerName && fs.existsSync(path + '/' + f) && filelist.indexOf(path + '/' + f) == -1 && f[0] != '.') {
         var stats = fs.statSync(path + '/' + f);
         totalsize = totalsize + stats.size;
         filelist.push(path + '/' + f);
@@ -106,9 +108,10 @@ module.exports =
     });
   },
 
-  new_packet: function (path, delsrc, callback) {}, // delsrc is bool.
+  /* If we can remove the need to use protobuf, we will... The test will begin by directly link watcher with evenly-cassandra on workers 
+  new_packet: function (path, totalsize, filelist, callback) {},
   get_header: function (path, callback) {},
   unpackit:  function (path, delpkg, callback) {}, // delpkg is bool.
   repackit:  function (header_obj, delsrc, callback) {} // delsrc is bool.
-  // more ... 
+  // more ... */
 };
